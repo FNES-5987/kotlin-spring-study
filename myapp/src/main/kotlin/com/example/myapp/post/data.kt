@@ -18,6 +18,24 @@ data class PostCommentCountResponse(
     val commentCount : Long
 )
 
+data class PostWithFileResponse(
+    val id : Long,
+    val title : String,
+    val content: String,
+    val createdDate: String,
+    val files : List<PostFileResponse>
+)
+
+
+data class PostFileResponse(
+    val id : Long,
+    val postId : Long,
+    var uuidFileName : String,
+    val originalFileName : String,
+    val contentType: String,
+)
+
+
 // Java
 // String str = null;
 

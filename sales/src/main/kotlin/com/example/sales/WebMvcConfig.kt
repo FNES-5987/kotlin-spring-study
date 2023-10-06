@@ -1,13 +1,13 @@
-package com.example.myapp.configuration
-import com.example.myapp.auth.AuthInterceptor
+package com.example.sales
+
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.EnableWebMvc
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
+
 @Configuration
 @EnableWebMvc
-class WebMvcConfig(val authInterceptor: AuthInterceptor ) : WebMvcConfigurer {
+class WebMvcConfig: WebMvcConfigurer {
     // CORS(cross orgin resource sharing)
     // 다른 origin끼리 자원을 공유할 수 있게 하는 것
     // 기본으로 웹(js)에서는 CORS가 안 됨.
@@ -24,9 +24,5 @@ class WebMvcConfig(val authInterceptor: AuthInterceptor ) : WebMvcConfigurer {
                 "http://localhost:5000"
             ) // 로컬 호스트 origin 허용
             .allowedMethods("*") // 모든 메서드 허용(GET, POST.....)
-    }
-    // 인증처리용 인터셉터를 추가
-    override fun addInterceptors(registry: InterceptorRegistry) {
-        registry.addInterceptor(authInterceptor)
     }
 }
