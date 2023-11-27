@@ -11,7 +11,7 @@ class InventoryController(private val inventoryClient: InventoryClient) {
 
     @GetMapping("/{productId}")
     fun getProductStock(@PathVariable productId : Int) : Int? {
-        // sales, :8082/inventories/{productId}
+        // sales, :8081/inventories/{productId}
         return inventoryClient.fetchProductStocks(productId);
     }
 }
